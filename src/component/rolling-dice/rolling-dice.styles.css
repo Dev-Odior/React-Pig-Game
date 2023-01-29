@@ -1,0 +1,11 @@
+.dicies {
+  position: absolute;
+  width: 20%;
+  left: 50%;
+  top: 16.5rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  display: flex;
+  justify-content: space-between;
+  /* border: solid 1px black; */
+}

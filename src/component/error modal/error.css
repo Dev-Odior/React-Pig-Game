@@ -1,0 +1,36 @@
+.error-container {
+  width: 100vw;
+  height: 100%;
+  background-color: black;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.error {
+  z-index: 222;
+  position: absolute;
+  align-self: center;
+  background-color: white;
+  width: 30%;
+  height: 30%;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.error h2 {
+  margin-bottom: 25px;
+}
+.error-button {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  color: white;
+  background-color: #c3446c;
+}
