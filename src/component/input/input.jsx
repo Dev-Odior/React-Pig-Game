@@ -3,31 +3,18 @@ import { AppContext } from '../../context/app-context'
 import './input.css'
 
 const Input = () => {
-  const { setAgreedScore, setError, setErrorState, setShowWinScore } = useContext(AppContext)
-  const [score, setScore] = useState('')
+  const { dispatcher } = useContext(AppContext)
+  const [input, setInput] = useState('')
+
+  const onChangeHandler = (e) => {
+    const { value } = e.target
+    setInput(value)
+  }
 
   const onSubmitHandler = (event) => {
     event.preventDefault()
-    if (score > 9999) {
-      console.log(score, 'was returned')
-      setError('You Have inputed a value more then 9999')
-      setErrorState(true)
-      setScore('')
-
-      return
-    } else if (score.trim() <= 0) {
-      console.log('you have not inputed a valid number')
-      setError('you have not inputed a valid number')
-      setErrorState(true)
-      return
-    }
-    setAgreedScore(score)
-    setShowWinScore(true)
-    setScore('')
-  }
-
-  const onChangeHandler = (event) => {
-    setScore(event.target.value)
+    dispatcher({ type: 'AGREED_SCORE', payLoad: input })
+    setInput('')
   }
 
   return (
@@ -37,9 +24,9 @@ const Input = () => {
           <input
             type="number"
             className="form-input"
-            onChange={onChangeHandler}
-            value={score}
             placeholder="Enter Score"
+            onChange={onChangeHandler}
+            value={input}
           />
           <button className="input-button">Set</button>
         </div>

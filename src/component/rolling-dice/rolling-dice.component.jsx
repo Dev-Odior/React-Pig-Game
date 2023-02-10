@@ -1,15 +1,19 @@
-import { useContext } from 'react'
-import { AppContext } from '../../context/app-context'
 import Dice from '../dice/dice.component'
 import './rolling-dice.styles.css'
+import { defaultDices } from '../../data/data'
+import { useContext } from 'react'
+import { AppContext } from '../../context/app-context'
 
 const RollingDice = () => {
-  const { dices } = useContext(AppContext)
+  const { diceOne, diceTwo } = useContext(AppContext)
+  let values
+
   return (
     <div className="dicies">
-      {dices.map((each) => (
-        <Dice key={each.id} data={each} />
-      ))}
+      {defaultDices.map((each) => {
+        each.id === 1 ? (values = diceOne) : (values = diceTwo)
+        return <Dice key={each.id} diceValue={values} />
+      })}
     </div>
   )
 }

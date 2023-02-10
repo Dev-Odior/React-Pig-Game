@@ -4,15 +4,16 @@
   background-color: black;
   opacity: 0.4;
   position: absolute;
-  top: 0;
-  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .error {
   z-index: 222;
   position: absolute;
-  align-self: center;
   background-color: white;
+  text-align: center;
   width: 30%;
   height: 30%;
   border-radius: 25px;
@@ -22,6 +23,8 @@
   justify-content: center;
   box-sizing: border-box;
   padding: 10px;
+  top: 35%;
+  left: 35%;
 }
 .error h2 {
   margin-bottom: 25px;
